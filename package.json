@@ -1,0 +1,13 @@
+{
+  "name": "fhirform",
+  "version": "0.1.0",
+  "main": "index.js",
+  "author": "Adam Sherwood",
+  "dependencies": {
+    "node-sass": "^4.7.2",
+    "normalize.css": "^8.0.0"
+  },
+  "scripts": {
+    "css": "./node_modules/node-sass/bin/node-sass style.scss style.css"
+  }
+}

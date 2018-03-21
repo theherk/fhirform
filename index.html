@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,700i" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="node_modules/normalize.css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="typeChoice.js"></script>
+    <title>Patient</title>
+  </head>
+  <body>
+
+    <div id="content">
+      <form id="schema-editor">
+        <fieldset>
+          <legend>Patient</legend>
+          <!-- Primitive types should be grouped first within the type to which they belong. -->
+          <label for="Patient.active">
+            Active
+            <input name="Patient.active" id="Patient.active" type="checkbox" checked>
+          </label>
+          <label for="Patient.birthDate">
+            Birthdate
+            <input name="Patient.birthDate" id="Patient.birthDate" type="date">
+          </label>
+          <fieldset class="typeChoice">
+            <legend>Deceased</legend>
+            <!-- Always two fieldsets; first for choice, second for fields. -->
+            <fieldset class="typeChoiceSelection">
+              <label for="Patient.deceased.typeChoice.boolean">
+                Boolean
+                <input name="Patient.deceased.typeChoice" id="Patient.deceased.typeChoice.boolean" value="Patient.deceased[boolean]" type="radio">
+              </label>
+              <label for="Patient.deceased.typeChoice.dateTime">
+                Datetime
+                <input name="Patient.deceased.typeChoice" id="Patient.deceased.typeChoice.dateTime" value="Patient.deceased[dateTime]" type="radio">
+              </label>
+            </fieldset>
+            <!-- Fields loaded based on typeChoice. -->
+            <fieldset class="typeChoiceFields">
+              <label for="Patient.deceased[boolean]" class="hidden">
+                True
+                <input name="Patient.deceased[boolean]" id="Patient.deceased[boolean]" type="checkbox">
+              </label>
+              <label for="Patient.deceased[dateTime]" class="hidden">
+                Date
+                <input name="Patient.deceased[dateTime]" id="Patient.deceased[dateTime]" type="date">
+              </label>
+            </fieldset>
+          </fieldset>
+
+          <fieldset class="stacked">
+            <!-- This is a separate set of fields (defined elsewhere; included) as all nested non-primative types should be. -->
+            <legend>Identifier</legend>
+            <fieldset>
+              <label for="Patient.identifier.use">
+                Use
+                <select name="Patient.identifier.use" id="Patient.identifier.use">
+                  <!-- Allow reselectable blank for field cardinality beginning with 0. -->
+                  <option value></option>
+                  <option value="Official">Official</option>
+                  <option value="Usual">Usual</option>
+                  <option value="Temp">Temp</option>
+                  <option value="Secondary">Secondary</option>
+                </select>
+              </label>
+              <label for="Patient.identifier.type">
+                Type
+                <!-- Unclear why this is a multiple select; cardinality 0..1. -->
+                <select name="Patient.identifier.type" id="Patient.identifier.type" multiple>
+                  <option value=""></option>
+                  <option value="Medical Record Number">Medical Record Number</option>
+                  <option value="Microchip Number">Microchip Number</option>
+                </select>
+              </label>
+              <label for="Patient.identifier.system">
+                System
+                <input name="Patient.identifier.system" id="Patient.identifier.system" type="text">
+              </label>
+              <label for="Patient.identifier.value">
+                Value
+                <input name="Patient.identifier.value" id="Patient.identifier.value" type="text">
+              </label>
+              <fieldset class="range">
+                <legend>Period</legend>
+                <label for="Patient.identifier.period.start">
+                  Start
+                  <input name="Patient.identifier.period.start" id="Patient.identifier.period.start" type="date">
+                </label>
+                <label for="Patient.identifier.period.end">
+                  End
+                  <input name="Patient.identifier.period.end" id="Patient.identifier.period.end" type="date">
+                </label>
+              </fieldset>
+              <label for="Patient.identifier.assigner">
+                Assigner
+                <select id="Patient.identifier.assigner">
+                  <option value></option>
+                  <option>Organization</option>
+                </select>
+              </label>
+            </fieldset>
+            <button class="add" type="button">+</button>
+          </fieldset>
+
+        </fieldset>
+      </form>
+    </div>
+
+  </body>
+</html>
