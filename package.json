@@ -5,7 +5,7 @@
   "author": "Adam Sherwood",
   "dependencies": {
     "node-sass": "^4.7.2",
-    "normalize.css": "^8.0.0"
+    "normalize.css": "^8.0.1",
   },
   "scripts": {
     "css": "./node_modules/node-sass/bin/node-sass style.scss style.css"
