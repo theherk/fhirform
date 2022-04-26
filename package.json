@@ -4,10 +4,10 @@
   "main": "index.js",
   "author": "Adam Sherwood",
   "dependencies": {
-    "node-sass": "^4.7.2",
     "normalize.css": "^8.0.1",
+    "sass": "^1.51.0"
   },
   "scripts": {
-    "css": "./node_modules/node-sass/bin/node-sass style.scss style.css"
+    "css": "./node_modules/sass/sass.js style.scss style.css"
   }
 }
